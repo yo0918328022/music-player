@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>櫻禎の音樂播放器</title>
+    <link href="home work3.css" rel="stylesheet" />
+   
+</head>
+<body>
+    <div id="content">
+        <div id="top">櫻禎の音樂播放器</div>
+
+        <div id="content1" style="display: flex">
+            <!--歌單-->
+            <div id="lef">
+                <div>
+                    <img id="shortcard" src="image/1.png">
+                </div>
+                <div>
+                    曲目
+                    <select id="song"></select>
+                </div>
+                <div>
+                    <button id="chooselist" onclick="songBook()">歌曲選單</button>
+                </div>
+
+                <div id="book" class="hide">
+                    <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <!--歌本-->
+                        <div title="mv/ARASHI%20-%20A-RA-SHI-Reborn.mp4">ARASHI-A-RA-SHI-Reborn</div>
+                        <div title="mv/Lisa-homura.mp4">Lisa-炎</div>
+                        <div title="mv/Mrs. GREEN APPLE - aotonatu.mp4">Mrs GEREEN APPLE-青と夏</div>
+                        <div title="mv/Novelbright-Sunny drop.mp4">Novelbright-Sunny drop</div>
+                        <div title="mv/hoshinogenn-hushigi.mp4">星野源-不思議</div>
+                        <div title="mv/YOASOBI  sanngennsyoku.mp4">YOASOBI-三原色</div>
+                    </div>
+                    <div ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <!--已選歌單-->
+
+                    </div>
+                    <button onclick="UpdateMusic()">更新歌單</button>
+                </div>
+
+            </div>
+
+
+            <div id="right">
+                <div id="infoword">
+                    <marquee>~請按下播放鈕~</marquee><!--跑馬燈-->
+                    <div>狀態</div>
+                </div>
+                <div id="vedio">
+                    <video id="music">
+                        <!--controls="controls"內建控制器-->
+                        <!--影片檔-->
+                        <source src="mv/ARASHI%20-%20A-RA-SHI-Reborn.mp4" />
+                    </video>
+                </div>
+                <div>
+                    <input id="progress" type="range" value="0" oninput="setTimeBar()" /><!--進度條-->
+                    <span id="infotime">00:00 / 00:00</span><!--時間-->
+
+                </div>
+
+                <div id="span1">
+                    <span onclick="changeSong(-1)">9</span><!--上一首-->
+                    <span onclick="changeTime(-5)">7</span><!--倒轉-->
+                    <span onclick="Play()" id="btnPlay" title="這是播放鈕">4</span><!--播放暫停鍵-->
+                    <span onclick="Stop()"><</span><!--停止-->
+                    <span onclick="changeTime(5)">8</span><!--快轉-->
+                    <span onclick="changeSong(1)">:</span><!--下一首-->
+                    <span onclick="setLoop()">q</span><!--單曲循環-->
+                    <span onclick="setRandom()">s</span><!--隨機播放-->
+                    <span onclick="setAllLoop()">`</span><!--全曲播放-->
+
+                </div>
+                <hr />
+
+                <input id="volValue" type="range" max="100" min="0" value="80" oninput="setVolume()" /><!--音量調-->
+                <input id="Button1" class="btnVol" type="button" value="-" onclick="changeVolume(-1)" /><!--—-->
+                <input id="Button2" class="btnVol" type="button" value="+" onclick="changeVolume(1)" /><!--—＋-->
+                <span id="span2" onclick="setMuted()">V</span>
+                <input id="volInfo" type="text" readonly /><!--—音量框-->
+                <!--內容-->
+            </div>
+        </div>
+        <div id="bottom">僅供作業使用 影片來源：Youtube</div>
+
+    </div>
+
+    <script src="home work3.js"></script>
+
+   
+</body>
+</html>
